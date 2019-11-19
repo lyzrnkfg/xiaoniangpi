@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require bootstrap-datepicker3
+ *= require iziToast.min
+ *= require font-awesome
+ *= require_self
+ */
+
+.background-image {
+    background: rgba(0, 0, 0, 0) url("../assets/head_bg-3ec2c8a17c932d326ee495e532e1bdc9e357d3f761d5838a3f778a065db78a57.jpg ") no-repeat scroll center -79px
+}
+
+/*#等比缩放*/
+.bg{
+    background:url("../assets/head_bg-3ec2c8a17c932d326ee495e532e1bdc9e357d3f761d5838a3f778a065db78a57.jpg ");
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size:100% 100%;
+    background-size:100% 100%;
+    background-attachment: fixed;
+}
+
+body {
+    background: rgba(0, 0, 0, 0) url("../assets/body_bg-325decc1fe86997a0de72effcffeb8bea2d546eeb36d1e2dcc2106d1815026d9.jpg ") repeat scroll center top;
+    color: #362e2b;
+    font-family: Arial,Console,Verdana,Courier New;
+    font-size: 12px;
+    margin: 0;
+}
+
+.pic{
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    z-index: -1;
+    width: 100%;
+}
+
+a{
+    color: #000000;
+}
+
+.fixed{
+    top: 10px;
+    width: 320px;
+    height: 330px;
+    background-color: #F8F8F8;
+    padding: 20px;
+}
+
+.top {
+    caption-side: top;
+}
+
+.bottom {
+    caption-side: bottom;
+}
+
+/*-----------------------------------/
+/* BUTTON CUSTOM CLASSES
+/*----------------------------------*/
+
+.button-default, .button-default:hover, .button-default:focus, .button-default:active {
+    text-decoration: none;
+}
+
+.button-default {
+    font: bold 12px sans-serif;
+    color: #222222;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+}
+
+.button-default.xlsx:before, .button-default.xls:before, .button-default.csv:before, .button-default.txt:before {
+    content: none;
+}
+
+.xlsx, .xls, .csv, .txt {
+    margin: 4px 0;
+}
+
+.xlsx:before, .xls:before, .csv:before, .txt:before {
+    margin-right: 10px;
+    padding: 12px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.xlsx:before {
+    background-color: darkgreen;
+    content: url("../assets/ixlsx-8a58904bf6c961814f86d20af8c56f91e5e6ba1163290f655aabd72cef0964d3.png");
+}
+
+.xls:before {
+    background-color: green;
+    content: url("../assets/ixls-a0b417608675278a0ac043f6e483b6a0a7657b7b6cc8e040ab6024773e727844.png");
+}
+
+.csv:before {
+    background-color: blue;
+    content: url("../assets/icsv-5b1a10d62f85e0b899650b95c8b7f8103f4eee5adbd9701b8141ab49dc195f9f.png");
+}
+
+.txt:before {
+    background-color: purple;
+    content: url("../assets/itxt-78c731ff3b0704d48c01bb65e142f4e04cb97f3368554f6ad835f2e6c0fe9981.png");
+}
+
+
+
+
+
+

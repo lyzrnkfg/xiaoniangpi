@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>小娘皮</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <%= render "layouts/heade_application" %>
+      <div class="container" style="margin-top: 20px">
+        <img src="../assets/head_bg-3ec2c8a17c932d326ee495e532e1bdc9e357d3f761d5838a3f778a065db78a57.jpg " class="pic" />
+        <%= render "welcomes/alert_message" %>
+        <%= yield %>
+      </div>
+  </body>
+</html>

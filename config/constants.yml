@@ -1,0 +1,33 @@
+defaults: &defaults
+
+  SWAT_LOGIN_URL: "https://swat-2.khi.co.jp/kosu_kintai_asp/"
+
+  STATUS:
+    UNCLAIMED:
+      id: "0"
+      name: "未申請"
+      locked: false
+    REQUEST:
+      id: "1"
+      name: "申請中"
+      locked: true
+    APPROVAL:
+      id: "2"
+      name: "承認済"
+      locked: true
+    REMAND:
+      id: "3"
+      name: "差戻し"
+      locked: false
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

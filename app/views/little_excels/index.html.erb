@@ -1,0 +1,59 @@
+
+
+<div class="page-header">
+  <h1>ExcelAction</h1>
+</div>
+<%= form_tag({:controller=>"little_excels",:action=>"excel_upload"},{:method=>"post",:id=>"mainfrom",:enctype => 'multipart/form-data',:class => "form-horizontal"}) do %>
+
+    <div class="form-group">
+      <div class="modelText col-lg-8">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon1">selectExecl</span>
+          <input type="text" id="fileName" class="form-control" name="fileName" placeholder="功能：Excel第一个sheet第一列和第二列重复项">
+          <input style="display: none" type="file" name="upFile" id="upFile" onchange="document.getElementById('fileName').value=this.value">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" onclick="$('#upFile').click()"><%= t('helpers.links.show') %></button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-12">
+        <input type="submit" value="upload" class="btn btn-primary" data-disable-with = '保存中...'>
+        <%= link_to 'excelStyleDownLoad', excel_download_little_excels_path(format: :xlsx), class: "btn btn-success" %>
+      </div>
+    </div>
+<% end %>
+
+<div class="col-lg-8">
+  <table class="table table-bordered table-condensed table-striped table-hover" id="excel_table">
+    <tbody>
+    <% if @excel_result.present? %>
+        <% @excel_result.each do |key, value| %>
+            <% value.each_with_index do |result, i| %>
+                <tr>
+                  <% if i == 0 %>
+                      <td><%= key.first %></td>
+                      <td><%= key.last %></td>
+                  <% else %>
+                      <td></td>
+                      <td></td>
+                  <% end %>
+                  <td><%= result %></td>
+                  <td><%= key.last %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        if($("#excel_table tbody tr").length > 0){
+            $("#excel_table").tableExport({formats:["xlsx","csv","txt"], fileName: "fileName"});
+        }
+    })
+</script>

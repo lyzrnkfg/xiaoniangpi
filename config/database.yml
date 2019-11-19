@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # 以下の3つを追加
+  username: postgres
+  password: password
+  # RailsサーバとPostgreSQLサーバが同じ場合
+  host: localhost
+development:
+  <<: *default
+  database: xiaopi_development
+test:
+  <<: *default
+  database: xiaopi_test
+production:
+  <<: *default
+  database: xiaopi_production

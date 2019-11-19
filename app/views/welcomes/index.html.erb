@@ -1,0 +1,41 @@
+
+
+
+<!--<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+    <span class="sr-only">45%</span>
+  </div>
+</div>-->
+<div id="ProgressBarID">
+  <div>
+  </div>
+</div>
+
+<script type="application/javascript">
+
+    function setProgressBar(progress) {
+        if (progress) {
+            $(".progress > div").css("width", String(progress) + "%");
+            $(".progress > div").html(String(progress) + "%");
+        }
+    }
+    var i_ProgressBar = 0;
+    function doProgressBarLoading() {
+        if (i_ProgressBar > 100) {
+            return;
+        }
+        if (i_ProgressBar <= 100) {
+            setTimeout("doProgressBarLoading()", 100);
+            setProgressBar(i_ProgressBar);
+            i_ProgressBar++;
+        }
+    }
+
+    $(document).ready(function () {
+        <!-- doProgressBarLoading(); -->
+        <% if @flg.blank? %>
+            $("#welcome_btn").click()
+        <% end %>
+    });
+
+</script>

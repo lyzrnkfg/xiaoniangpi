@@ -1,0 +1,65 @@
+
+<script type="text/javascript">
+    //
+    // CONFIG IZIToast
+    //
+
+    iziToast.settings({
+        timeout: 5000,
+        // position: 'center',
+        // imageWidth: 50,
+        pauseOnHover: true,
+        // resetOnHover: true,
+        close: false,
+        progressBar: true,
+        // layout: 1,
+        // balloon: true,
+        // target: '.target',
+        // icon: 'material-icons',
+        // iconText: 'face',
+        // animateInside: false,
+        // transitionIn: 'flipInX',
+        // transitionOut: 'flipOutX',
+    });
+
+    $(document).ready(function ($) {
+
+        <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) && msg.present? %>
+                switch('<%= name %>'){
+                    case 'notice':alert_info('<%= msg %>');break;
+                    case 'info':alert_info('<%= msg %>');break;
+                    case 'success':alert_success('<%= msg %>');break;
+                    case 'alert':alert_warning('<%= msg %>');break;
+                    case 'warning':alert_warning('<%= msg %>');break;
+                    case 'error':alert_error('<%= msg %>');break;
+                }
+            <% end %>
+        <% end %>
+
+        $(".trigger-custom2").on('click', function (event) {
+            event.preventDefault();
+
+            iziToast.show({
+                class: 'test',
+                color: 'dark',
+                icon: 'icon-contacts',
+                title: 'Hello!',
+                message: $(this).attr("data_message"),
+                position: 'topCenter',
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                progressBarColor: 'rgb(0, 255, 184)',
+                image: '../assets/avatar-e7936e45a0f6bdfce2fdcdef864546e63f0330a89cc9513e72af766a15002c65.jpg',
+                imageWidth: 70,
+                layout:2,
+                onClose: function(){
+                    console.info('onClose');
+                },
+                iconColor: 'rgb(0, 255, 184)'
+            });
+        });
+
+    });
+
+</script>
